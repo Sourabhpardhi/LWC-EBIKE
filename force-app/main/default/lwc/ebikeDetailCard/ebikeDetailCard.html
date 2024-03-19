@@ -1,0 +1,24 @@
+<template>
+    <lightning-card icon-name="standard:actions_and_buttons">
+
+        <template if:true={ebikeData}>
+            <span slot="title">{ebikeData.Name}</span>
+            <lightning-button-icon icon-name="utility:expand_alt"
+                                   slot="actions"
+                                    onclick={handleNavigateToRecord}>
+            </lightning-button-icon>
+            <div class="slds-p-arround_small">
+                <img src={ebikeData.Image_url__c} class="ebike"/>
+                <h1 class="slds-p-left_small">Ebike Details</h1>
+                <p class="slds-p-left_small">Model : {ebikeData.Model__c}</p>
+                <p class="slds-p-left_small">Category : {ebikeData.Category__c}</p>
+                <p class="slds-p-left_small">Price : {ebikeData.Price__c}</p>
+
+            </div>
+        </template>
+        <template if:false={ebikeData}>
+            <p class="slds-align_absolute-center">select Ebike to see details</p>
+        </template>
+
+    </lightning-card>
+</template>

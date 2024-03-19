@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Explore Ebikes">
+        <lightning-button label="New Ebike" 
+                      onclick={createEbikes} 
+                      slot="actions">
+        </lightning-button>
+        <div class="slds-align_absolute-center">
+            <lightning-combobox value = {selectedEbikeCategory}
+                            options={optionsArray}
+                            onchange={handleOptionChange}>
+            </lightning-combobox>
+        </div>
+        <template if:true={selectedEbikeId}>
+            <!--<p class="slds-align_absolute-center">Selected player : {selectedEbikeId}</p>-->
+            <template if:true={ebikeDetails}>
+                <div class="slds-align_absolute-center">
+                    <!-- Display other eBike details -->
+                    <p class="child">Selected Ebike : {ebikeDetails.Name}</p>
+                    <!--<p>Other Field 1: {ebikeDetails.Other_Field_1__c}</p>
+                    <p>Other Field 2: {ebikeDetails.Other_Field_2__c}</p>-->
+                    <!-- Add other fields as needed -->
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+
+    <!--calling ebike search resault component-->
+    <div class="slds-m-top_small">
+        <c-ebike-search-results onselect={handleCustomEvent}></c-ebike-search-results>
+    </div>
+</template>

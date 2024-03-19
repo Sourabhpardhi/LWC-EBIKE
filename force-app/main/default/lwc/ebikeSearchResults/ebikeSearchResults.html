@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Ebike Search Results">
+        <lightning-layout multiple-rows="true">
+            <template if:true={ebikesData}>
+                <template for:each={ebikesData} for:item="ebike">
+                    <lightning-layout-item size="3" key={ebike.Id}
+                    class="slds-align_absolute-center">
+                    <!--card starting here-->
+                    <div class="title_wrapper" onclick={handleClickEbikeCard} data-id={ebike.Id}>
+                        <!--image section-->
+                        <div class="tile">
+                            <img src={ebike.Image_url__c}/>
+                        </div>
+                        <div class="ebike_data">
+                            <h1 class="slds-text-heading_medium">{ebike.Name}</h1>
+                            <div class="p">
+                                <p>Model: {ebike.Model__c}</p>
+                                <p>Price: {ebike.Price__c}</p>
+                            </div>                       
+                        </div>
+                    </div>
+                    </lightning-layout-item>
+                </template>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>
